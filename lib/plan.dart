@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:logger/logger.dart';
@@ -14,8 +12,6 @@ class Plan extends StatefulWidget {
 }
 
 class _PlanState extends State<Plan> {
-  final Completer<NaverMapController> mapControllerCompleter = Completer();
-
   @override
   Widget build(BuildContext context) {
     Logger().d( StaticValue.pathList);
@@ -28,19 +24,14 @@ class _PlanState extends State<Plan> {
       ),
       body: NaverMap(
         onMapCreated: (NaverMapController controller) {
-          mapControllerCompleter.complete(controller);
+          if(!StaticValue.mapControllerCompleter.isCompleted) {
+            StaticValue.mapControllerCompleter.complete(controller);
+          }
         },
         mapType: MapType.Basic,
         pathOverlays: StaticValue.pathList,
         useSurface: false,
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.refresh),
-        onPressed: (){
-          setState(() {
-
-          });
-        },
+        markers: StaticValue.markerList,
       ),
     );
   }

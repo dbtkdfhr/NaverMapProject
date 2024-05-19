@@ -20,7 +20,7 @@ RouteModel _$RouteModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RouteModel {
-  Trafast get trafast => throw _privateConstructorUsedError;
+  List<SummaryModel> get traoptimal => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,9 +34,7 @@ abstract class $RouteModelCopyWith<$Res> {
           RouteModel value, $Res Function(RouteModel) then) =
       _$RouteModelCopyWithImpl<$Res, RouteModel>;
   @useResult
-  $Res call({Trafast trafast});
-
-  $TrafastCopyWith<$Res> get trafast;
+  $Res call({List<SummaryModel> traoptimal});
 }
 
 /// @nodoc
@@ -52,22 +50,14 @@ class _$RouteModelCopyWithImpl<$Res, $Val extends RouteModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? trafast = null,
+    Object? traoptimal = null,
   }) {
     return _then(_value.copyWith(
-      trafast: null == trafast
-          ? _value.trafast
-          : trafast // ignore: cast_nullable_to_non_nullable
-              as Trafast,
+      traoptimal: null == traoptimal
+          ? _value.traoptimal
+          : traoptimal // ignore: cast_nullable_to_non_nullable
+              as List<SummaryModel>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TrafastCopyWith<$Res> get trafast {
-    return $TrafastCopyWith<$Res>(_value.trafast, (value) {
-      return _then(_value.copyWith(trafast: value) as $Val);
-    });
   }
 }
 
@@ -79,10 +69,7 @@ abstract class _$$RouteModelImplCopyWith<$Res>
       __$$RouteModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Trafast trafast});
-
-  @override
-  $TrafastCopyWith<$Res> get trafast;
+  $Res call({List<SummaryModel> traoptimal});
 }
 
 /// @nodoc
@@ -96,13 +83,13 @@ class __$$RouteModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? trafast = null,
+    Object? traoptimal = null,
   }) {
     return _then(_$RouteModelImpl(
-      trafast: null == trafast
-          ? _value.trafast
-          : trafast // ignore: cast_nullable_to_non_nullable
-              as Trafast,
+      traoptimal: null == traoptimal
+          ? _value._traoptimal
+          : traoptimal // ignore: cast_nullable_to_non_nullable
+              as List<SummaryModel>,
     ));
   }
 }
@@ -110,17 +97,23 @@ class __$$RouteModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RouteModelImpl implements _RouteModel {
-  _$RouteModelImpl({required this.trafast});
+  _$RouteModelImpl({required final List<SummaryModel> traoptimal})
+      : _traoptimal = traoptimal;
 
   factory _$RouteModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$RouteModelImplFromJson(json);
 
+  final List<SummaryModel> _traoptimal;
   @override
-  final Trafast trafast;
+  List<SummaryModel> get traoptimal {
+    if (_traoptimal is EqualUnmodifiableListView) return _traoptimal;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_traoptimal);
+  }
 
   @override
   String toString() {
-    return 'RouteModel(trafast: $trafast)';
+    return 'RouteModel(traoptimal: $traoptimal)';
   }
 
   @override
@@ -128,12 +121,14 @@ class _$RouteModelImpl implements _RouteModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RouteModelImpl &&
-            (identical(other.trafast, trafast) || other.trafast == trafast));
+            const DeepCollectionEquality()
+                .equals(other._traoptimal, _traoptimal));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, trafast);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_traoptimal));
 
   @JsonKey(ignore: true)
   @override
@@ -150,13 +145,14 @@ class _$RouteModelImpl implements _RouteModel {
 }
 
 abstract class _RouteModel implements RouteModel {
-  factory _RouteModel({required final Trafast trafast}) = _$RouteModelImpl;
+  factory _RouteModel({required final List<SummaryModel> traoptimal}) =
+      _$RouteModelImpl;
 
   factory _RouteModel.fromJson(Map<String, dynamic> json) =
       _$RouteModelImpl.fromJson;
 
   @override
-  Trafast get trafast;
+  List<SummaryModel> get traoptimal;
   @override
   @JsonKey(ignore: true)
   _$$RouteModelImplCopyWith<_$RouteModelImpl> get copyWith =>

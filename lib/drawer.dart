@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:logger/logger.dart';
 import 'package:ooad/model/geocode_model.dart';
+import 'package:ooad/model/line_model.dart';
+import 'package:ooad/naverWeb.dart';
 import 'package:ooad/staticValue.dart';
 import 'model/retrofit.dart';
 
@@ -102,6 +104,32 @@ class _NavDrawerState extends State<NavDrawer> {
           );
 
           StaticValue.pathList.add(path);
+
+          String start = "${path.coords[0].longitude}, ${path.coords[0].latitude}";
+          String end = "${path.coords[1].longitude}, ${path.coords[1].latitude}";
+          
+          LineModel pathInfo = await repo.getRoot(start, end, "traoptimal", "btaagluojl", "WvgC3FiiyE8P5HnEpFTqyR56sN72kcIA2k2aBff3");
+
+          String duration = pathInfo.route.traoptimal[0].duration.toString();
+
+          final NaverMapController controller = await StaticValue.mapControllerCompleter.future;
+
+          controller.moveCamera(CameraUpdate.scrollTo(StaticValue.locationList[last-1],), animationDuration: 2);
+
+          setState(() {
+            StaticValue.markerList.add(
+              Marker(
+                markerId: StaticValue.pathList.length.toString(),
+                position: StaticValue.locationList[last-1],
+                infoWindow: duration,
+                onMarkerTab: (marker, map){
+                  if(marker?.markerId == StaticValue.lastChoose) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const NaverWeb()),);
+                  }
+                },
+              )
+            );
+          });
         }
       }
     }

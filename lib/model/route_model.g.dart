@@ -8,10 +8,12 @@ part of 'route_model.dart';
 
 _$RouteModelImpl _$$RouteModelImplFromJson(Map<String, dynamic> json) =>
     _$RouteModelImpl(
-      trafast: Trafast.fromJson(json['trafast'] as Map<String, dynamic>),
+      traoptimal: (json['traoptimal'] as List<dynamic>)
+          .map((e) => SummaryModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$RouteModelImplToJson(_$RouteModelImpl instance) =>
     <String, dynamic>{
-      'trafast': instance.trafast,
+      'traoptimal': instance.traoptimal,
     };

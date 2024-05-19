@@ -1,8 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_naver_map/flutter_naver_map.dart';
-import 'package:logger/logger.dart';
 import 'package:ooad/plan.dart';
 
 void main() async {
@@ -49,23 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
-      ),
-      body: ListView.separated(
-        itemCount: items.length,
-        itemBuilder: (BuildContext context, int index) {
-          // return ListTile(
-          //   onTap: () {
-          //   },
-          //   title: Container(
-          //     alignment: Alignment.centerLeft,
-          //     height: 50,
-          //     child: Text(
-          //       items[index],
-          //       textAlign: TextAlign.start,
-          //     ),
-          //   ),
-          // );
-        }, separatorBuilder: (BuildContext context, int index) { return const Divider(thickness: 1); },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){

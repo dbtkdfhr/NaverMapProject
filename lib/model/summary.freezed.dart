@@ -20,7 +20,6 @@ SummaryModel _$SummaryModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SummaryModel {
-  List<List<double>> get bbox => throw _privateConstructorUsedError;
   int get duration => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +34,7 @@ abstract class $SummaryModelCopyWith<$Res> {
           SummaryModel value, $Res Function(SummaryModel) then) =
       _$SummaryModelCopyWithImpl<$Res, SummaryModel>;
   @useResult
-  $Res call({List<List<double>> bbox, int duration});
+  $Res call({int duration});
 }
 
 /// @nodoc
@@ -51,14 +50,9 @@ class _$SummaryModelCopyWithImpl<$Res, $Val extends SummaryModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bbox = null,
     Object? duration = null,
   }) {
     return _then(_value.copyWith(
-      bbox: null == bbox
-          ? _value.bbox
-          : bbox // ignore: cast_nullable_to_non_nullable
-              as List<List<double>>,
       duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -75,7 +69,7 @@ abstract class _$$SummaryModelImplCopyWith<$Res>
       __$$SummaryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<List<double>> bbox, int duration});
+  $Res call({int duration});
 }
 
 /// @nodoc
@@ -89,14 +83,9 @@ class __$$SummaryModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bbox = null,
     Object? duration = null,
   }) {
     return _then(_$SummaryModelImpl(
-      bbox: null == bbox
-          ? _value._bbox
-          : bbox // ignore: cast_nullable_to_non_nullable
-              as List<List<double>>,
       duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -108,27 +97,17 @@ class __$$SummaryModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SummaryModelImpl implements _SummaryModel {
-  _$SummaryModelImpl(
-      {required final List<List<double>> bbox, required this.duration})
-      : _bbox = bbox;
+  _$SummaryModelImpl({required this.duration});
 
   factory _$SummaryModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SummaryModelImplFromJson(json);
-
-  final List<List<double>> _bbox;
-  @override
-  List<List<double>> get bbox {
-    if (_bbox is EqualUnmodifiableListView) return _bbox;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_bbox);
-  }
 
   @override
   final int duration;
 
   @override
   String toString() {
-    return 'SummaryModel(bbox: $bbox, duration: $duration)';
+    return 'SummaryModel(duration: $duration)';
   }
 
   @override
@@ -136,15 +115,13 @@ class _$SummaryModelImpl implements _SummaryModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SummaryModelImpl &&
-            const DeepCollectionEquality().equals(other._bbox, _bbox) &&
             (identical(other.duration, duration) ||
                 other.duration == duration));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_bbox), duration);
+  int get hashCode => Object.hash(runtimeType, duration);
 
   @JsonKey(ignore: true)
   @override
@@ -161,15 +138,11 @@ class _$SummaryModelImpl implements _SummaryModel {
 }
 
 abstract class _SummaryModel implements SummaryModel {
-  factory _SummaryModel(
-      {required final List<List<double>> bbox,
-      required final int duration}) = _$SummaryModelImpl;
+  factory _SummaryModel({required final int duration}) = _$SummaryModelImpl;
 
   factory _SummaryModel.fromJson(Map<String, dynamic> json) =
       _$SummaryModelImpl.fromJson;
 
-  @override
-  List<List<double>> get bbox;
   @override
   int get duration;
   @override

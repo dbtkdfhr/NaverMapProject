@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'coordinate_model.dart';
 
 part 'address_model.g.dart';
 part 'address_model.freezed.dart';
